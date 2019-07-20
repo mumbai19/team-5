@@ -41,7 +41,7 @@ include('includes/navbar.php');
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="save_product" class="btn btn-primary">Save</button>
+            <button type="submit" name="save_product_user" class="btn btn-primary">Save</button>
         </div>
       </form>
 

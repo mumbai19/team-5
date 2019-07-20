@@ -108,26 +108,33 @@ if(isset($_POST['about_delete_btn'])){
         }
 }
 
-if(isset($_POST['save_product'])){
+if(isset($_POST['save_product_user'])){
+
+//    echo var_dump($_POST);
+    
+
+
     $name=$_POST['pname'];
     $price=$_POST['pprice'];
     $description=$_POST['pdescription'];
-    $image=$_FILES["product_image"]['pname'];
+    $image=$_FILES["product_image"]['name'];
     $keyword=$_POST['pkeyword'];
-$result=mysqli_query($con,$sql);
 
-        move_uploaded_file($_FILES["product_image"]["tmp_name"],"uploadd/".$_FILES["product_image"]["pname"]);
+        move_uploaded_file($_FILES["product_image"]["tmp_name"],"uploadd/".$_FILES["product_image"]["name"]);
         $sql="INSERT INTO products (product_title,product_price,product_desc,product_image,product_keywords) VALUES('$name','$price','$description','$image','$keyword')";
+        echo $sql;
         $result=mysqli_query($con,$sql);
         echo $result;
+        /*
         if($result){
             $_SESSION['success']="product Added.";
             header("Location:product.php");
         }else{
-            $_SESSION['status']="product Not Added.";
+            echo $sql;
+            $_SESSION['status']="product Not Added";
             header("Location:product.php");
         }
-    
+        */
 }
 if(isset($_POST['update_product_btn']))
 {
