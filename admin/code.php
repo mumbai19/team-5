@@ -1,6 +1,6 @@
 <?php
 include("security.php");
-include("dbconfig.php");
+include("database/dbconfig.php");
 
 if(isset($_POST['registerbtn'])){
     $username=$_POST['username'];
@@ -108,89 +108,58 @@ if(isset($_POST['about_delete_btn'])){
         }
 }
 
-if(isset($_POST['save_faculty'])){
-    $name=$_POST['faculty_name'];
-    $keyword=$_POST['faculty_keyword'];
-    $description=$_POST['faculty_description'];
-    $image=$_FILES["faculty_image"]['name'];
-    $price=$_POST['price'];
+if(isset($_POST['save_product'])){
+    $name=$_POST['pname'];
+    $price=$_POST['pprice'];
+    $description=$_POST['pdescription'];
+    $image=$_FILES["product_image"]['pname'];
+    $keyword=$_POST['pkeyword'];
+$result=mysqli_query($con,$sql);
 
-    if(file_exists("upload/".$_FILES["faculty_image"]["name"]))
-    {
-        $store=$_FILES["faculty_image"]["name"];
-        $_SESSION['status']="Image already exists '.$store'";
-        header("Location:faculty.php");
-
-    }
-    else
-    {
-        move_uploaded_file($_FILES["faculty_image"]["tmp_name"],"upload/".$_FILES["faculty_image"]["name"]);
-        $sql="INSERT INTO products (product_title,product_price,product_desc,product_image,product_keyword) VALUES('$name','$price','$description','$image','$keyword')";
+        move_uploaded_file($_FILES["product_image"]["tmp_name"],"uploadd/".$_FILES["product_image"]["pname"]);
+        $sql="INSERT INTO products (product_title,product_price,product_desc,product_image,product_keywords) VALUES('$name','$price','$description','$image','$keyword')";
         $result=mysqli_query($con,$sql);
+        echo $result;
         if($result){
-            $_SESSION['success']="Faculty Added.";
-            header("Location:faculty.php");
+            $_SESSION['success']="product Added.";
+            header("Location:product.php");
         }else{
-            $_SESSION['status']="Faculty Not Added.";
-            header("Location:faculty.php");
+            $_SESSION['status']="product Not Added.";
+            header("Location:product.php");
         }
-    }     
+    
 }
-
-if(isset($_POST['update_faculty_btn']))
+if(isset($_POST['update_product_btn']))
 {
     $id=$_POST['edit_id'];
-    $name=$_POST['edit_faculty_name'];
-    $designation=$_POST['edit_faculty_designation'];
-    $description=$_POST['edit_faculty_description'];
-    $image=$_FILES["faculty_image"]['name'];
+    $name=$_POST['edit_name'];
+    $designation=$_POST['edit_price'];
+    $description=$_POST['edit_description'];
+    $image=$_FILES["product_image"]['name'];
 
-    $sql="UPDATE faculty SET name='$name',designation='$designation',description='$description',image='$image' WHERE id='$id'";
+    $sql="UPDATE products SET product_name='$name',product_price='$price',product_desc='$description',product_image='$image' WHERE product_id='$id'";
     $result=mysqli_query($con,$sql);
 
     if($result){
-        move_uploaded_file($_FILES["faculty_image"]["tmp_name"],"upload/".$_FILES["faculty_image"]["name"]);
-        $_SESSION['success']="Faculty Updated.";
-        header("Location:faculty.php");
+        move_uploaded_file($_FILES["product_image"]["tmp_name"],"uploadd/".$_FILES["product_image"]["name"]);
+        $_SESSION['success']="Product Updated.";
+        header("Location:product.php");
     }else{
-        $_SESSION['status']="Faculty Not Updated.";
-        header("Location:faculty.php");
+        $_SESSION['status']="Product Not Updated.";
+        header("Location:product.php");
     }
 }
 
-if(isset($_POST['faculty_delete_btn']))
+if(isset($_POST['product_delete_btn']))
 {
     $id=$_POST['delete_id'];
-    $sql="DELETE FROM faculty WHERE id='$id'";
+    $sql="DELETE FROM products WHERE id='$id'";
     $result=mysqli_query($con,$sql);
         if($result){
-            $_SESSION['success']="Faculty DELETED.";
-            header("Location:faculty.php");
+            $_SESSION['success']="product DELETED.";
+            header("Location:product.php");
         }else{
-            $_SESSION['status']="Faculty Not DELETED.";
-            header("Location:faculty.php");
+            $_SESSION['status']="product Not DELETED.";
+            header("Location:product.php");
         }
 }
-
-if(isset($_POST['search_data'])){
-    $id=$_POST['id'];
-    $visible=$_POST['visible'];
-
-    $sql="UPDATE faculty SET visible='$visible' WHERE id='$id'";
-    $result=mysqli_query($con,$sql);
-
-}
-
-if(isset($_POST['del_mul_rec'])){
-    $id=1;
-    $sql="DELETE FROM faculty WHERE visible='$id'";
-    $result=mysqli_query($con,$sql);
-        if($result){
-            $_SESSION['success']="Faculties DELETED.";
-            header("Location:faculty.php");
-        }else{
-            $_SESSION['status']="Faculties Not DELETED.";
-            header("Location:faculty.php");
-        }
-}
-?>

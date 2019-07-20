@@ -37,7 +37,7 @@
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Custom Components:</h6>
       <a class="collapse-item" href="#">About Us</a>
-      <a class="collapse-item" href="faculty.php">Faculties</a>
+      <a class="collapse-item" href="product.php">Products</a>
     </div>
   </div>
 </li>
@@ -62,7 +62,7 @@
   <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Custom Utilities:</h6>
-      <a class="collapse-item" href="#">Add Video</a>
+      <a class="collapse-item" href="video.php">Add Video</a>
       <a class="collapse-item" href="utilities-border.html">Borders</a>
       <a class="collapse-item" href="utilities-animation.html">Animations</a>
       <a class="collapse-item" href="utilities-other.html">Other</a>
