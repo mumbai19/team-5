@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Trishul_Fund_Raiser</string>
+    <string name="username">Username</string>
+    <string name="attempts">Attempts</string>
+    <string name="password">Password</string>
+    <string name="login_button">Login</string>
 </resources>
