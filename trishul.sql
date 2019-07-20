@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2019 at 10:02 PM
+-- Generation Time: Jul 20, 2019 at 10:20 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -106,7 +106,7 @@ CREATE TABLE `orders` (
   `order_id` int(100) NOT NULL,
   `cust_id` int(100) NOT NULL,
   `payment_id` int(10) NOT NULL,
-  `order_date` date NOT NULL DEFAULT current_timestamp(),
+  `order_date` date NOT NULL,
   `delivery_date` date DEFAULT NULL,
   `total_amount` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
