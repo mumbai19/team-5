@@ -1,3 +1,3 @@
 <?php 
-$con=mysqli_connect("localhost","root","","adminpanel");
+$con=mysqli_connect("localhost","root","","trishul");
 ?>
