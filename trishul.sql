@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2019 at 04:58 PM
+-- Generation Time: Jul 20, 2019 at 05:39 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -29,7 +29,6 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cart` (
-  `id` int(10) NOT NULL,
   `p_id` int(10) NOT NULL,
   `ip_add` varchar(250) NOT NULL,
   `user_id` int(10) NOT NULL,
@@ -57,7 +56,10 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
 (1, 'Bag'),
-(2, 'Jewellery');
+(2, 'Jewellery'),
+(3, 'Keychain'),
+(4, 'Paperweights'),
+(5, 'Candle');
 
 -- --------------------------------------------------------
 
@@ -78,25 +80,38 @@ CREATE TABLE `customer_order` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `donation`
---
-
-CREATE TABLE `donation` (
-  `donation_id` int(11) NOT NULL,
-  `don_amount` int(11) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `don_cat_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `donation_category`
 --
 
 CREATE TABLE `donation_category` (
   `don_cat_id` int(11) NOT NULL,
   `don_cat_name` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `donation_category`
+--
+
+INSERT INTO `donation_category` (`don_cat_id`, `don_cat_name`) VALUES
+(1, 'Woman Empowerment'),
+(2, 'Disaster Management'),
+(3, 'Child Education'),
+(4, 'Environment Conservation'),
+(5, 'Health and Nutrition');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `funds_raised`
+--
+
+CREATE TABLE `funds_raised` (
+  `donation_id` int(11) NOT NULL,
+  `don_amount` int(11) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `don_cat_id` int(11) NOT NULL,
+  `user_id` int(10) NOT NULL,
+  `status` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -175,7 +190,10 @@ CREATE TABLE `user_info` (
   `mobile` varchar(10) NOT NULL,
   `address1` varchar(300) NOT NULL,
   `address2` varchar(200) NOT NULL,
-  `role_id` int(11) NOT NULL
+  `role_id` int(11) NOT NULL,
+  `city` varchar(20) NOT NULL,
+  `state` varchar(20) NOT NULL,
+  `postal_code` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -186,8 +204,8 @@ CREATE TABLE `user_info` (
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `p_id` (`p_id`);
+  ADD UNIQUE KEY `p_id` (`p_id`),
+  ADD KEY `cart_ibfk_2` (`user_id`);
 
 --
 -- Indexes for table `categories`
@@ -203,17 +221,18 @@ ALTER TABLE `customer_order`
   ADD UNIQUE KEY `uid` (`uid`);
 
 --
--- Indexes for table `donation`
---
-ALTER TABLE `donation`
-  ADD PRIMARY KEY (`donation_id`),
-  ADD UNIQUE KEY `don_cat_id` (`don_cat_id`);
-
---
 -- Indexes for table `donation_category`
 --
 ALTER TABLE `donation_category`
   ADD PRIMARY KEY (`don_cat_id`);
+
+--
+-- Indexes for table `funds_raised`
+--
+ALTER TABLE `funds_raised`
+  ADD PRIMARY KEY (`donation_id`),
+  ADD KEY `user_id_fk` (`user_id`),
+  ADD KEY `don_cat_id_fk` (`don_cat_id`);
 
 --
 -- Indexes for table `order_product`
@@ -253,16 +272,10 @@ ALTER TABLE `user_info`
 --
 
 --
--- AUTO_INCREMENT for table `cart`
---
-ALTER TABLE `cart`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
-
---
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cat_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `cat_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `customer_order`
@@ -271,16 +284,10 @@ ALTER TABLE `customer_order`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `donation`
---
-ALTER TABLE `donation`
-  MODIFY `donation_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `donation_category`
 --
 ALTER TABLE `donation_category`
-  MODIFY `don_cat_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `don_cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -314,7 +321,8 @@ ALTER TABLE `user_info`
 -- Constraints for table `cart`
 --
 ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`p_id`) REFERENCES `products` (`product_id`);
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`p_id`) REFERENCES `products` (`product_id`),
+  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user_info` (`user_id`);
 
 --
 -- Constraints for table `customer_order`
@@ -323,10 +331,11 @@ ALTER TABLE `customer_order`
   ADD CONSTRAINT `customer_order_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user_info` (`user_id`);
 
 --
--- Constraints for table `donation_category`
+-- Constraints for table `funds_raised`
 --
-ALTER TABLE `donation_category`
-  ADD CONSTRAINT `donation_category_ibfk_1` FOREIGN KEY (`don_cat_id`) REFERENCES `donation` (`don_cat_id`);
+ALTER TABLE `funds_raised`
+  ADD CONSTRAINT `don_cat_id_fk` FOREIGN KEY (`don_cat_id`) REFERENCES `donation_category` (`don_cat_id`),
+  ADD CONSTRAINT `user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `user_info` (`user_id`);
 
 --
 -- Constraints for table `order_product`
