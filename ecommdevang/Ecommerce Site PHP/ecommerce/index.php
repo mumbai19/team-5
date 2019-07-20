@@ -1,5 +1,11 @@
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/header.php'; ?>
+<style>
+.skin-blue .main-header .navbar {
+    background-color: 	#C3C177;
+    PADDING: 1%;
+}
+</style>
 <body class="hold-transition skin-blue layout-top-nav">
 <div class="wrapper">
 
@@ -30,13 +36,13 @@
 		                </ol>
 		                <div class="carousel-inner">
 		                  <div class="item active">
-		                    <img src="images/banner1.png" alt="First slide">
+		                    <img src="images/banner1.jpg" alt="First slide">
 		                  </div>
 		                  <div class="item">
-		                    <img src="images/banner2.png" alt="Second slide">
+		                    <img src="images/banner2.jpg" alt="Second slide">
 		                  </div>
 		                  <div class="item">
-		                    <img src="images/banner3.png" alt="Third slide">
+		                    <img src="images/banner3.jpg" alt="Third slide">
 		                  </div>
 		                </div>
 		                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">

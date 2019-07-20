@@ -1,8 +1,16 @@
+
+<style>
+ 
+.skin-blue .main-header .navbar {
+    background-color: #C3C177;
+    PADDING: 1%;
+}
+</style>
 <header class="main-header">
   <nav class="navbar navbar-static-top">
     <div class="container">
       <div class="navbar-header">
-        <a href="index.php" class="navbar-brand"><b>Trishul</b></a>
+        <a href="index.php" class="navbar-brand"><img src="images/logo.png" style="margin-top:-25px;width:120px;height: 70px">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
           <i class="fa fa-bars"></i>
         </button>
