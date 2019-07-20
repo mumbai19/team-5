@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2019 at 05:41 PM
+-- Generation Time: Jul 20, 2019 at 07:53 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -140,6 +140,7 @@ CREATE TABLE `products` (
   `product_desc` text NOT NULL,
   `product_image` text NOT NULL,
   `product_keywords` text NOT NULL,
+  `Stock` int(4) NOT NULL,
   `visible` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -147,9 +148,22 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `product_cat_id`, `product_title`, `product_price`, `product_desc`, `product_image`, `product_keywords`, `visible`) VALUES
-(1, 1, 'Handmade Warli Bag', 100, 'Hand Made Bag by the women of rural India', 'b1.jpg', 'handmade', 0),
-(2, 2, 'Handmade Jewellery', 300, 'One in a kind jewellery made from beads and stones hand picked by the woman of rural India', 'j1.jpg', 'handmade', 0);
+INSERT INTO `products` (`product_id`, `product_cat_id`, `product_title`, `product_price`, `product_desc`, `product_image`, `product_keywords`, `Stock`, `visible`) VALUES
+(1, 1, 'Handmade Warli Bag(Black)', 100, 'Hand Made Bag by the women of rural India', 'b1.jpg', 'handmade', 10, 0),
+(2, 2, 'Handmade Jewellery', 300, 'One in a kind jewellery made from beads and stones hand picked by the woman of rural India', 'j1.jpg', 'handmade', 5, 0),
+(3, 1, 'Handmade Warli Bag(White)', 175, 'Description_3', 'b2.jpg', 'handmade bag', 11, 0),
+(4, 1, 'Handmade Flower Bag(White)', 250, 'Description_4', 'b3.jpg', 'handmade bag', 12, 0),
+(5, 3, 'Hand Picked Beads(Red)', 150, 'Description_5', 'k1.jpg', 'handmade keychain', 5, 0),
+(6, 2, 'Handmade Necklace(red)', 300, 'Description_6', 'j2.jpg', 'handmade jewellery', 18, 0),
+(7, 5, 'Royal Falooda', 125, 'Description_7', 'c1.jpg', 'falooda candle', 11, 0),
+(8, 2, 'Earing(Blue)', 175, 'Description_8', 'j3.jpg', 'earing blue', 7, 0),
+(9, 3, 'Multicolor Beads', 150, 'Description_9', 'k2.jpg', 'multicolor', 11, 0),
+(10, 4, 'Beautiful Flower', 75, 'Description_10', 'p1.jpg', 'flower', 7, 0),
+(11, 2, 'Earing(Red)', 250, 'Description_11', 'j4.jpg', 'earing red', 5, 0),
+(12, 5, 'Rainbow Jar', 150, 'Description_12', 'c2.jpg', 'rainbow candle', 17, 0),
+(13, 1, 'Handmade Peacock Bag(Ochre)', 200, 'Description_13', 'b4.jpg', 'handmade bag', 14, 0),
+(14, 1, 'Handmade Warli Bag(Ochre)', 225, 'Description_14', 'b5.jpg', 'handmade bag', 12, 0),
+(15, 4, 'Warli', 75, 'Description_15', 'p2.jpg', 'warli', 14, 0);
 
 -- --------------------------------------------------------
 
@@ -175,6 +189,14 @@ CREATE TABLE `role` (
   `role_name` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `role`
+--
+
+INSERT INTO `role` (`role_id`, `role_name`) VALUES
+(1, 'Admin'),
+(2, 'User');
+
 -- --------------------------------------------------------
 
 --
@@ -195,6 +217,22 @@ CREATE TABLE `user_info` (
   `state` varchar(20) NOT NULL,
   `postal_code` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_info`
+--
+
+INSERT INTO `user_info` (`user_id`, `fisrt_name`, `last_name`, `email`, `password`, `mobile`, `address1`, `address2`, `role_id`, `city`, `state`, `postal_code`) VALUES
+(1, 'Shlok', 'Surname', 'shlok@gmail.com', 'pass_11', '9819519327', 'Flat No, Building Name', 'Street Name,Suburb', 1, 'Mumbai', 'Maharashtra', 400054),
+(2, 'Athul', 'Surname', 'athul@gmail.com', 'pass_11', '9819519328', 'Flat No, Building Name', 'Street Name,Suburb', 2, 'Delhi', 'Delhi', 110017),
+(3, 'Devang', 'Surname', 'devang@gmail.com', 'pass_11', '9819519329', 'Flat No, Building Name', 'Street Name,Suburb', 2, 'Bangalore', 'Karnataka', 560104),
+(4, 'Disha', 'Surname', 'disha@gmail.com', 'pass_11', '9819519330', 'Flat No, Building Name', 'Street Name,Suburb', 1, 'Hyderabad', 'Telangana', 500030),
+(5, 'Dheeraj', 'Surname', 'dheeraj@gmail.com', 'pass_11', '9819519331', 'Flat No, Building Name', 'Street Name,Suburb', 1, 'Ahmedabad', 'Gujarat', 382434),
+(6, 'Gunjan', 'Surname', 'gunjan@gmail.com', 'pass_11', '9819519332', 'Flat No, Building Name', 'Street Name,Suburb', 2, 'Chennai', 'Tamil Nadu', 600044),
+(7, 'Yogesh', 'Surname', 'yogesh@gmail.com', 'pass_11', '9819519333', 'Flat No, Building Name', 'Street Name,Suburb', 2, 'Kolkata', 'West Bengal', 700129),
+(8, 'Devansh', 'Surname', 'devansh@gmail.com', 'pass_11', '9819519334', 'Flat No, Building Name', 'Street Name,Suburb', 2, 'Mumbai', 'Maharashtra', 400040),
+(9, 'Siddhi', 'Surname', 'siddhi@gmail.com', 'pass_11', '9819519335', 'Flat No, Building Name', 'Street Name,Suburb', 2, 'Mumbai', 'Maharashtra', 400065),
+(10, 'Akhil', 'Surname', 'akhil@gmail.com', 'pass_11', '9819519336', 'Flat No, Building Name', 'Street Name,Suburb', 2, 'Pune', 'Maharashtra', 411053);
 
 --
 -- Indexes for dumped tables
@@ -246,7 +284,7 @@ ALTER TABLE `order_product`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`product_id`),
-  ADD UNIQUE KEY `product_cat_id` (`product_cat_id`);
+  ADD KEY `products_ibfk_1` (`product_cat_id`);
 
 --
 -- Indexes for table `received_payment`
@@ -265,7 +303,7 @@ ALTER TABLE `role`
 --
 ALTER TABLE `user_info`
   ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `role_id` (`role_id`);
+  ADD KEY `role_id_fk` (`role_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -293,7 +331,7 @@ ALTER TABLE `donation_category`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `product_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `received_payment`
@@ -305,13 +343,13 @@ ALTER TABLE `received_payment`
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user_info`
 --
 ALTER TABLE `user_info`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
@@ -354,7 +392,7 @@ ALTER TABLE `products`
 -- Constraints for table `user_info`
 --
 ALTER TABLE `user_info`
-  ADD CONSTRAINT `user_info_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`);
+  ADD CONSTRAINT `role_id_fk` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
