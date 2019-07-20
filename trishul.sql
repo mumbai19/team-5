@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2019 at 04:33 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.7
+-- Generation Time: Jul 20, 2019 at 04:58 PM
+-- Server version: 10.3.16-MariaDB
+-- PHP Version: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,17 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `trishul`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `brands`
---
-
-CREATE TABLE `brands` (
-  `brand_id` int(100) NOT NULL,
-  `brand_title` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -62,6 +51,14 @@ CREATE TABLE `categories` (
   `cat_title` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
+(1, 'Bag'),
+(2, 'Jewellery');
+
 -- --------------------------------------------------------
 
 --
@@ -87,7 +84,7 @@ CREATE TABLE `customer_order` (
 CREATE TABLE `donation` (
   `donation_id` int(11) NOT NULL,
   `don_amount` int(11) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `don_cat_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -123,7 +120,6 @@ CREATE TABLE `order_product` (
 CREATE TABLE `products` (
   `product_id` int(100) NOT NULL,
   `product_cat_id` int(100) NOT NULL,
-  `product_brand` int(100) NOT NULL,
   `product_title` varchar(300) NOT NULL,
   `product_price` int(100) NOT NULL,
   `product_desc` text NOT NULL,
@@ -131,6 +127,14 @@ CREATE TABLE `products` (
   `product_keywords` text NOT NULL,
   `visible` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`product_id`, `product_cat_id`, `product_title`, `product_price`, `product_desc`, `product_image`, `product_keywords`, `visible`) VALUES
+(1, 1, 'Handmade Warli Bag', 100, 'Hand Made Bag by the women of rural India', 'b1.jpg', 'handmade', 0),
+(2, 2, 'Handmade Jewellery', 300, 'One in a kind jewellery made from beads and stones hand picked by the woman of rural India', 'j1.jpg', 'handmade', 0);
 
 -- --------------------------------------------------------
 
@@ -179,12 +183,6 @@ CREATE TABLE `user_info` (
 --
 
 --
--- Indexes for table `brands`
---
-ALTER TABLE `brands`
-  ADD PRIMARY KEY (`brand_id`);
-
---
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
@@ -221,7 +219,8 @@ ALTER TABLE `donation_category`
 -- Indexes for table `order_product`
 --
 ALTER TABLE `order_product`
-  ADD UNIQUE KEY `order_id` (`order_id`,`product_id`);
+  ADD PRIMARY KEY (`order_id`,`product_id`),
+  ADD KEY `product_id_fk` (`product_id`);
 
 --
 -- Indexes for table `products`
@@ -252,12 +251,6 @@ ALTER TABLE `user_info`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `brands`
---
-ALTER TABLE `brands`
-  MODIFY `brand_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `cart`
@@ -339,7 +332,8 @@ ALTER TABLE `donation_category`
 -- Constraints for table `order_product`
 --
 ALTER TABLE `order_product`
-  ADD CONSTRAINT `order_product_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `customer_order` (`id`);
+  ADD CONSTRAINT `order_id_fk` FOREIGN KEY (`order_id`) REFERENCES `customer_order` (`id`),
+  ADD CONSTRAINT `product_id_fk` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
 
 --
 -- Constraints for table `products`
