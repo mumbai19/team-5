@@ -1,5 +1,0 @@
- <!-- FOR DISPLAYING YOUTUBE VIDEO -->
- <iframe width="250" height="225" src="https://www.youtube.com/embed
-            <?php $link=mysqli_real_escape_string($con,$row['video']);
-            $nlink=substr($link,16);
-            echo $nlink;?>"frameborder="0" allowfullscreen></iframe>
