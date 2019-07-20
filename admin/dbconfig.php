@@ -1,3 +1,3 @@
 <?php 
-$con=mysqli_connect("localhost","root","","trishul");
+$con=mysqli_connect("localhost","root","abc123","trishul");
 ?>
