@@ -16,7 +16,7 @@ include('includes/navbar.php');
         
         if(isset($_POST['edit_btn'])){
             $id=$_POST['edit_id'];
-            $sql="SELECT * FROM faculty WHERE id='$id'";
+            $sql="SELECT * FROM products WHERE id='$id'";
             $result=mysqli_query($con,$sql);
             foreach($result as $row)
             {

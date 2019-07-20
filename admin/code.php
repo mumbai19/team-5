@@ -110,9 +110,10 @@ if(isset($_POST['about_delete_btn'])){
 
 if(isset($_POST['save_faculty'])){
     $name=$_POST['faculty_name'];
-    $designation=$_POST['faculty_designation'];
+    $keyword=$_POST['faculty_keyword'];
     $description=$_POST['faculty_description'];
     $image=$_FILES["faculty_image"]['name'];
+    $price=$_POST['price'];
 
     if(file_exists("upload/".$_FILES["faculty_image"]["name"]))
     {
@@ -124,7 +125,7 @@ if(isset($_POST['save_faculty'])){
     else
     {
         move_uploaded_file($_FILES["faculty_image"]["tmp_name"],"upload/".$_FILES["faculty_image"]["name"]);
-        $sql="INSERT INTO faculty (name,designation,description,image) VALUES('$name','$designation','$description','$image')";
+        $sql="INSERT INTO products (product_title,product_price,product_desc,product_image,product_keyword) VALUES('$name','$price','$description','$image','$keyword')";
         $result=mysqli_query($con,$sql);
         if($result){
             $_SESSION['success']="Faculty Added.";

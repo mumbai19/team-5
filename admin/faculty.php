@@ -20,40 +20,28 @@ include('includes/navbar.php');
 
             <div class="form-group">
                 <label> Name </label>
-                <input type="text" name="product_name" class="form-control" placeholder="Enter name">
-            </div>
-            <div class="form-group">
-                <label>Category</label>
-                <input type="text" name="product_designation" class="form-control" placeholder="Enter Category">
+                <input type="text" name="faculty_name" class="form-control" placeholder="Enter name">
             </div>
             <div class="form-group">
                 <label>Keyword</label>
-                <input type="text" name="product_keyword" class="form-control" placeholder="Enter Keyword/Tags">
+                <input type="text" name="faculty_keyword" class="form-control" placeholder="Enter Keyword">
             </div>
             <div class="form-group">
                 <label>Description</label>
-                <textarea type="text" name="product_description" class="form-control" placeholder="Enter Description"></textarea>
+                <textarea type="text" name="faculty_description" class="form-control" placeholder="Enter Description"></textarea>
             </div>
             <div class="form-group">
                 <label>Upload Image</label>
-                <input type="file" name="product_image" id="faculty_image" class="form-control" required>
+                <input type="file" name="faculty_image" id="faculty_image" class="form-control" required>
             </div>
             <div class="form-group">
                 <label>Price</label>
-                <input type="number" name="product_price" class="form-control" placeholder="Enter Price">
-            </div>
-            <div class="form-group">
-                <label>Manufacturing_Days</label>
-                <input type="number" name="manu_days" class="form-control" placeholder="Enter No.Of Days">
-            </div>
-            <div class="form-group">
-                <label>Delivery_days</label>
-                <input type="number" name="deli_days" class="form-control" placeholder="Enter No.Of Days">
+                <input type="number" name="price" class="form-control" placeholder="Enter Keyword">
             </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" name="save_product" class="btn btn-primary">Save</button>
+            <button type="submit" name="save_faculty" class="btn btn-primary">Save</button>
         </div>
       </form>
 
