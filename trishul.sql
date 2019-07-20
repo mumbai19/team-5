@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2019 at 07:53 PM
+-- Generation Time: Jul 20, 2019 at 10:02 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -30,7 +30,6 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `cart` (
   `p_id` int(10) NOT NULL,
-  `ip_add` varchar(250) NOT NULL,
   `user_id` int(10) NOT NULL,
   `product_title` varchar(300) NOT NULL,
   `product_image` text NOT NULL,
@@ -42,57 +41,19 @@ CREATE TABLE `cart` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Table structure for table `donation_categories`
 --
 
-CREATE TABLE `categories` (
-  `cat_id` int(100) NOT NULL,
-  `cat_title` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `categories`
---
-
-INSERT INTO `categories` (`cat_id`, `cat_title`) VALUES
-(1, 'Bag'),
-(2, 'Jewellery'),
-(3, 'Keychain'),
-(4, 'Paperweights'),
-(5, 'Candle');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `customer_order`
---
-
-CREATE TABLE `customer_order` (
-  `id` int(100) NOT NULL,
-  `uid` int(100) NOT NULL,
-  `p_name` varchar(255) NOT NULL,
-  `p_price` int(100) NOT NULL,
-  `p_status` varchar(100) NOT NULL,
-  `trx_id` varchar(300) NOT NULL,
-  `total_amount` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `donation_category`
---
-
-CREATE TABLE `donation_category` (
+CREATE TABLE `donation_categories` (
   `don_cat_id` int(11) NOT NULL,
   `don_cat_name` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `donation_category`
+-- Dumping data for table `donation_categories`
 --
 
-INSERT INTO `donation_category` (`don_cat_id`, `don_cat_name`) VALUES
+INSERT INTO `donation_categories` (`don_cat_id`, `don_cat_name`) VALUES
 (1, 'Woman Empowerment'),
 (2, 'Disaster Management'),
 (3, 'Child Education'),
@@ -114,6 +75,68 @@ CREATE TABLE `funds_raised` (
   `status` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `funds_raised`
+--
+
+INSERT INTO `funds_raised` (`donation_id`, `don_amount`, `date`, `don_cat_id`, `user_id`, `status`) VALUES
+(1, 10000, '2019-03-03 18:30:00', 5, 8, 'SUCCESS'),
+(2, 15000, '2019-04-22 18:30:00', 1, 7, 'SUCCESS'),
+(3, 7500, '2019-04-17 18:30:00', 4, 4, 'SUCCESS'),
+(4, 500, '2019-05-30 18:30:00', 1, 3, 'SUCCESS'),
+(5, 350, '2019-06-27 18:30:00', 4, 7, 'SUCCESS'),
+(6, 20000, '2019-01-02 18:30:00', 1, 7, 'SUCCESS'),
+(7, 200, '2019-07-10 18:30:00', 1, 8, 'SUCCESS'),
+(8, 500, '2019-05-26 18:30:00', 3, 8, 'SUCCESS'),
+(9, 100, '2019-04-15 18:30:00', 1, 9, 'SUCCESS'),
+(10, 1000, '2019-06-17 18:30:00', 1, 4, 'SUCCESS'),
+(11, 2000, '2019-05-05 18:30:00', 2, 5, 'SUCCESS'),
+(12, 10000, '2019-05-11 18:30:00', 3, 1, 'SUCCESS'),
+(13, 6000, '2019-07-20 18:30:00', 1, 2, 'SUCCESS'),
+(14, 4000, '2019-03-11 18:30:00', 2, 9, 'SUCCESS'),
+(15, 4500, '2019-03-03 18:30:00', 3, 6, 'SUCCESS');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `order_id` int(100) NOT NULL,
+  `cust_id` int(100) NOT NULL,
+  `payment_id` int(10) NOT NULL,
+  `order_date` date NOT NULL DEFAULT current_timestamp(),
+  `delivery_date` date DEFAULT NULL,
+  `total_amount` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `cust_id`, `payment_id`, `order_date`, `delivery_date`, `total_amount`) VALUES
+(1, 3, 1, '2019-01-08', '2019-01-14', NULL),
+(2, 4, 5, '2019-04-10', '2019-04-20', NULL),
+(3, 10, 2, '2019-02-26', '2019-03-07', NULL),
+(4, 9, 3, '2019-04-12', '2019-04-18', NULL),
+(5, 9, 5, '2019-06-25', '2019-06-30', NULL),
+(6, 5, 2, '2019-03-16', '2019-03-22', NULL),
+(7, 9, 2, '2019-01-03', '2019-01-10', NULL),
+(8, 6, 3, '2019-01-27', '2019-02-06', NULL),
+(9, 6, 2, '2019-02-05', '2019-02-08', NULL),
+(10, 5, 2, '2019-02-05', '2019-02-14', NULL),
+(11, 2, 1, '2019-04-15', '2019-04-22', NULL),
+(12, 8, 1, '2019-05-20', '2019-05-29', NULL),
+(13, 2, 1, '2019-05-21', '2019-05-27', NULL),
+(14, 5, 4, '2019-06-20', '2019-06-28', NULL),
+(15, 1, 5, '2019-03-17', '2019-03-21', NULL),
+(16, 8, 1, '2019-02-01', '2019-02-07', NULL),
+(17, 9, 2, '2019-06-21', '2019-06-27', NULL),
+(18, 3, 5, '2019-01-18', '2019-01-28', NULL),
+(19, 7, 2, '2019-01-14', '2019-01-20', NULL),
+(20, 5, 4, '2019-01-11', '2019-01-16', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -125,6 +148,72 @@ CREATE TABLE `order_product` (
   `product_id` int(11) NOT NULL,
   `product_quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order_product`
+--
+
+INSERT INTO `order_product` (`order_id`, `product_id`, `product_quantity`) VALUES
+(1, 4, 3),
+(1, 12, 4),
+(1, 13, 5),
+(2, 6, 3),
+(2, 10, 5),
+(2, 11, 3),
+(2, 12, 2),
+(3, 7, 2),
+(5, 11, 1),
+(5, 13, 4),
+(6, 10, 4),
+(6, 15, 1),
+(7, 7, 4),
+(7, 10, 2),
+(8, 6, 3),
+(10, 6, 1),
+(10, 13, 3),
+(11, 2, 2),
+(11, 12, 5),
+(11, 15, 5),
+(13, 5, 1),
+(13, 11, 4),
+(14, 2, 4),
+(14, 7, 5),
+(14, 14, 3),
+(15, 6, 4),
+(15, 8, 2),
+(15, 12, 1),
+(17, 1, 2),
+(17, 4, 4),
+(17, 8, 4),
+(17, 14, 4),
+(18, 14, 2),
+(19, 1, 2),
+(19, 3, 5),
+(19, 4, 4),
+(19, 14, 4),
+(20, 15, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment`
+--
+
+CREATE TABLE `payment` (
+  `payment_id` int(100) NOT NULL,
+  `payment_mode` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`payment_id`, `payment_mode`) VALUES
+(1, 'CoD'),
+(2, 'Debit Card'),
+(3, 'Credit Card'),
+(4, 'Netbanking'),
+(5, 'UPI');
 
 -- --------------------------------------------------------
 
@@ -168,15 +257,24 @@ INSERT INTO `products` (`product_id`, `product_cat_id`, `product_title`, `produc
 -- --------------------------------------------------------
 
 --
--- Table structure for table `received_payment`
+-- Table structure for table `prod_categories`
 --
 
-CREATE TABLE `received_payment` (
-  `id` int(100) NOT NULL,
-  `uid` int(100) NOT NULL,
-  `pid` int(100) NOT NULL,
-  `trx_id` int(100) NOT NULL
+CREATE TABLE `prod_categories` (
+  `cat_id` int(100) NOT NULL,
+  `cat_title` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `prod_categories`
+--
+
+INSERT INTO `prod_categories` (`cat_id`, `cat_title`) VALUES
+(1, 'Bag'),
+(2, 'Jewellery'),
+(3, 'Keychain'),
+(4, 'Paperweights'),
+(5, 'Candle');
 
 -- --------------------------------------------------------
 
@@ -246,22 +344,9 @@ ALTER TABLE `cart`
   ADD KEY `cart_ibfk_2` (`user_id`);
 
 --
--- Indexes for table `categories`
+-- Indexes for table `donation_categories`
 --
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`cat_id`);
-
---
--- Indexes for table `customer_order`
---
-ALTER TABLE `customer_order`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `uid` (`uid`);
-
---
--- Indexes for table `donation_category`
---
-ALTER TABLE `donation_category`
+ALTER TABLE `donation_categories`
   ADD PRIMARY KEY (`don_cat_id`);
 
 --
@@ -273,11 +358,25 @@ ALTER TABLE `funds_raised`
   ADD KEY `don_cat_id_fk` (`don_cat_id`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`),
+  ADD KEY `customer_order_fk_1` (`cust_id`),
+  ADD KEY `customer_order_fk_2` (`payment_id`);
+
+--
 -- Indexes for table `order_product`
 --
 ALTER TABLE `order_product`
   ADD PRIMARY KEY (`order_id`,`product_id`),
   ADD KEY `product_id_fk` (`product_id`);
+
+--
+-- Indexes for table `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`payment_id`);
 
 --
 -- Indexes for table `products`
@@ -287,10 +386,10 @@ ALTER TABLE `products`
   ADD KEY `products_ibfk_1` (`product_cat_id`);
 
 --
--- Indexes for table `received_payment`
+-- Indexes for table `prod_categories`
 --
-ALTER TABLE `received_payment`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `prod_categories`
+  ADD PRIMARY KEY (`cat_id`);
 
 --
 -- Indexes for table `role`
@@ -310,22 +409,22 @@ ALTER TABLE `user_info`
 --
 
 --
--- AUTO_INCREMENT for table `categories`
+-- AUTO_INCREMENT for table `donation_categories`
 --
-ALTER TABLE `categories`
-  MODIFY `cat_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `customer_order`
---
-ALTER TABLE `customer_order`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `donation_category`
---
-ALTER TABLE `donation_category`
+ALTER TABLE `donation_categories`
   MODIFY `don_cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `payment`
+--
+ALTER TABLE `payment`
+  MODIFY `payment_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -334,10 +433,10 @@ ALTER TABLE `products`
   MODIFY `product_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `received_payment`
+-- AUTO_INCREMENT for table `prod_categories`
 --
-ALTER TABLE `received_payment`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `prod_categories`
+  MODIFY `cat_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -363,30 +462,31 @@ ALTER TABLE `cart`
   ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user_info` (`user_id`);
 
 --
--- Constraints for table `customer_order`
---
-ALTER TABLE `customer_order`
-  ADD CONSTRAINT `customer_order_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user_info` (`user_id`);
-
---
 -- Constraints for table `funds_raised`
 --
 ALTER TABLE `funds_raised`
-  ADD CONSTRAINT `don_cat_id_fk` FOREIGN KEY (`don_cat_id`) REFERENCES `donation_category` (`don_cat_id`),
+  ADD CONSTRAINT `don_cat_id_fk` FOREIGN KEY (`don_cat_id`) REFERENCES `donation_categories` (`don_cat_id`),
   ADD CONSTRAINT `user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `user_info` (`user_id`);
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `customer_order_fk_1` FOREIGN KEY (`cust_id`) REFERENCES `user_info` (`user_id`),
+  ADD CONSTRAINT `customer_order_fk_2` FOREIGN KEY (`payment_id`) REFERENCES `payment` (`payment_id`);
 
 --
 -- Constraints for table `order_product`
 --
 ALTER TABLE `order_product`
-  ADD CONSTRAINT `order_id_fk` FOREIGN KEY (`order_id`) REFERENCES `customer_order` (`id`),
+  ADD CONSTRAINT `order_id_fk` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
   ADD CONSTRAINT `product_id_fk` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
 
 --
 -- Constraints for table `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`product_cat_id`) REFERENCES `categories` (`cat_id`);
+  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`product_cat_id`) REFERENCES `prod_categories` (`cat_id`);
 
 --
 -- Constraints for table `user_info`
