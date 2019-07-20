@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2019 at 07:34 PM
+-- Generation Time: Jul 20, 2019 at 07:53 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -151,19 +151,19 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`product_id`, `product_cat_id`, `product_title`, `product_price`, `product_desc`, `product_image`, `product_keywords`, `Stock`, `visible`) VALUES
 (1, 1, 'Handmade Warli Bag(Black)', 100, 'Hand Made Bag by the women of rural India', 'b1.jpg', 'handmade', 10, 0),
 (2, 2, 'Handmade Jewellery', 300, 'One in a kind jewellery made from beads and stones hand picked by the woman of rural India', 'j1.jpg', 'handmade', 5, 0),
-(3, 1, 'Handmade Warli Bag(White)', 175, 'b2.jpg', 'Description_3', 'handmade bag', 11, 0),
-(4, 1, 'Handmade Flower Bag(White)', 250, 'b3.jpg', 'Description_4', 'handmade bag', 12, 0),
-(5, 3, 'Hand Picked Beads(Red)', 150, 'k1.jpg', 'Description_5', 'handmade keychain', 5, 0),
-(6, 2, 'Handmade Necklace(red)', 300, 'j2.jpg', 'Description_6', 'handmade jewellery', 18, 0),
-(7, 5, 'Royal Falooda', 125, 'c1.jpg', 'Description_7', 'falooda candle', 11, 0),
-(8, 2, 'Earing(Blue)', 175, 'j3.jpg', 'Description_8', 'earing blue', 7, 0),
-(9, 3, 'Multicolor Beads', 150, 'k2.jpg', 'Description_9', 'multicolor', 11, 0),
-(10, 4, 'Beautiful Flower', 75, 'p1.jpg', 'Description_10', 'flower', 7, 0),
-(11, 2, 'Earing(Red)', 250, 'j4.jpg', 'Description_11', 'earing red', 5, 0),
-(12, 5, 'Rainbow Jar', 150, 'c2.jpg', 'Description_12', 'rainbow candle', 17, 0),
-(13, 1, 'Handmade Peacock Bag(Ochre)', 200, 'b4.jpg', 'Description_13', 'handmade bag', 14, 0),
-(14, 1, 'Handmade Warli Bag(Ochre)', 225, 'b5.jpg', 'Description_14', 'handmade bag', 12, 0),
-(15, 4, 'Warli', 75, 'p2.jpg', 'Description_15', 'warli', 14, 0);
+(3, 1, 'Handmade Warli Bag(White)', 175, 'Description_3', 'b2.jpg', 'handmade bag', 11, 0),
+(4, 1, 'Handmade Flower Bag(White)', 250, 'Description_4', 'b3.jpg', 'handmade bag', 12, 0),
+(5, 3, 'Hand Picked Beads(Red)', 150, 'Description_5', 'k1.jpg', 'handmade keychain', 5, 0),
+(6, 2, 'Handmade Necklace(red)', 300, 'Description_6', 'j2.jpg', 'handmade jewellery', 18, 0),
+(7, 5, 'Royal Falooda', 125, 'Description_7', 'c1.jpg', 'falooda candle', 11, 0),
+(8, 2, 'Earing(Blue)', 175, 'Description_8', 'j3.jpg', 'earing blue', 7, 0),
+(9, 3, 'Multicolor Beads', 150, 'Description_9', 'k2.jpg', 'multicolor', 11, 0),
+(10, 4, 'Beautiful Flower', 75, 'Description_10', 'p1.jpg', 'flower', 7, 0),
+(11, 2, 'Earing(Red)', 250, 'Description_11', 'j4.jpg', 'earing red', 5, 0),
+(12, 5, 'Rainbow Jar', 150, 'Description_12', 'c2.jpg', 'rainbow candle', 17, 0),
+(13, 1, 'Handmade Peacock Bag(Ochre)', 200, 'Description_13', 'b4.jpg', 'handmade bag', 14, 0),
+(14, 1, 'Handmade Warli Bag(Ochre)', 225, 'Description_14', 'b5.jpg', 'handmade bag', 12, 0),
+(15, 4, 'Warli', 75, 'Description_15', 'p2.jpg', 'warli', 14, 0);
 
 -- --------------------------------------------------------
 
