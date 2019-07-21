@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2019 at 02:10 AM
+-- Generation Time: Jul 21, 2019 at 02:15 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -114,7 +114,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `category_id`, `name`, `description`, `slug`, `price`, `photo`, `date_view`, `counter`) VALUES
-(30, 2, 'Hand Bag', '<p>Beautiful Bags</p>\r\n', 'hand-bag', 500, 'hand-bag.jpg', '2019-07-21', 1),
+(30, 2, 'Hand Bag', '<p>Beautiful Bags</p>\r\n', 'hand-bag', 500, 'hand-bag.jpg', '2019-07-21', 2),
 (31, 2, 'carry bag', '<p>CARRY BAGS</p>\r\n', 'carry-bag', 300, 'carry-bag.jpg', '0000-00-00', 0),
 (32, 2, 'Lotus Print Bag', '<p>Lotus BAGs</p>\r\n', 'lotus-print-bag', 600, 'lotus-print-bag.jpg', '0000-00-00', 0),
 (33, 2, 'peacock bag', '<p>peacock print bag</p>\r\n', 'peacock-bag', 500, 'peacock-bag.jpg', '0000-00-00', 0),
