@@ -1,6 +1,7 @@
 package in.zuts.trishuldonation;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -23,12 +24,18 @@ import in.zuts.trishuldonation.fragments.RecentActivities;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    SharedPreferences pref;
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        pref = getSharedPreferences("user_details",MODE_PRIVATE);
+        intent = new Intent(getApplicationContext(),LoginActivity.class);
+        if(!pref.contains("username") && !pref.contains("id")){
+            startActivity(intent);
+            finish();
+        }
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
