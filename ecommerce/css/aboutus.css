@@ -1,0 +1,204 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: #FFF;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Raleway', cursive;
+}
+
+section.about-w3l {
+    padding: 0;
+    margin: 0;
+}
+
+section.about-w3l .container-fluid {
+    padding: 0;
+}
+
+.col-lg-6.col-md-6.col-sm-6.about-agileinfo1 {
+    padding: 0;
+}
+
+.col-lg-6.col-md-6.col-sm-6.about-agileinfo2 {
+    background-color: #401515;
+    padding: 0;
+}
+
+section.about-w3l .aboutinfo {
+    padding: 40px 55px;
+}
+
+section.about-w3l .aboutinfo h2 {
+    font-size: 35px;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: 'Poiret One', cursive;
+    padding-bottom: 20px;
+}
+
+section.about-w3l .aboutinfo p {
+    font-size: 16px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    line-height: 30px;
+    color: #fff;
+    padding-bottom: 10px;
+}
+
+@media (max-width:1920px) {
+    section.about-w3l .aboutinfo {
+        padding: 55px 55px;
+    }
+}
+
+@media (max-width:1680px) {
+    section.about-w3l .aboutinfo {
+        padding: 40px 55px;
+    }
+}
+
+@media (max-width:1600px) {
+    section.about-w3l .aboutinfo p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width:1440px) {
+    section.about-w3l .aboutinfo p {
+        font-size: 14px;
+    }
+    section.about-w3l .aboutinfo {
+        padding: 40px 40px;
+    }
+}
+
+@media (max-width:1366px) {
+    .pogoSlider {
+        padding-bottom: 458px!important;
+    }
+}
+
+@media (max-width:1080px) {
+    .pogoSlider {
+        padding-bottom: 518px!important;
+    }
+}
+
+@media (max-width:1050px) {
+    section.about-w3l .aboutinfo {
+        padding: 35px 40px 25px;
+    }
+    .pogoSlider {
+        padding-bottom: 558px!important;
+    }
+}
+
+@media (max-width:1024px) {
+    .col-lg-6.col-md-6.col-sm-6.about-agileinfo1 {
+        padding: 0;
+        width: 100%;
+    }
+    .col-lg-6.col-md-6.col-sm-6.about-agileinfo2 {
+        background-color: #401515;
+        padding: 0;
+        width: 100%;
+    }
+    .pogoSlider {
+        padding-bottom: 500px!important;
+    }
+}
+
+@media (max-width:991px) {
+    section.about-w3l .aboutinfo h2 {
+        text-align: center;
+    }
+}
+
+@media (max-width:800px) {
+    .pogoSlider {
+        padding-bottom: 420px!important;
+    }
+    .pogoSlider {
+        padding-bottom: 400px!important;
+    }
+}
+
+@media (max-width:768px) {
+    .pogoSlider {
+        padding-bottom: 373px!important;
+    }
+}
+
+@media (max-width:736px) {
+    .pogoSlider {
+        padding-bottom: 338px!important;
+    }
+}
+
+@media (max-width:667px) {
+    section.about-w3l .aboutinfo h2 {
+        font-size: 30px;
+        padding-bottom: 25px;
+    }
+}
+
+@media (max-width:640px) {
+    .pogoSlider {
+        padding-bottom: 303px!important;
+    }
+}
+
+@media (max-width:600px) {
+    .pogoSlider {
+        padding-bottom: 280px!important;
+    }
+}
+
+@media (max-width:568px) {
+    .pogoSlider {
+        padding-bottom: 260px!important;
+    }
+    section.about-w3l .aboutinfo h2 {
+        font-size: 25px;
+        padding-bottom: 15px;
+    }
+}
+
+@media (max-width:414px) {
+    .pogoSlider {
+        padding-bottom: 205px!important;
+    }
+    section.about-w3l .aboutinfo {
+        padding: 30px 35px 15px;
+    }
+}
+
+@media (max-width:384px) {
+    .pogoSlider {
+        padding-bottom: 185px!important;
+    }
+}
+
+@media (max-width:320px) {
+    section.about-w3l .aboutinfo p {
+        font-size: 13px;
+        line-height: 28px;
+    }
+    section.about-w3l .aboutinfo h2 {
+        font-size: 24px;
+        padding-bottom: 10px;
+    }
+}
