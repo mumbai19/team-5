@@ -91,7 +91,10 @@
       width: 100px;
       height: 100px;
     }
-
+#navbar-search-input.form-control {
+    background: black;!important
+    border-color: transparent;
+}
     </style>
 
 </head>

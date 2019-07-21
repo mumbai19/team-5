@@ -5,6 +5,7 @@
     background-color: 	#C3C177;
     PADDING: 1%;
 }
+
 </style>
 <body class="hold-transition skin-blue layout-top-nav">
 <div class="wrapper">
@@ -114,7 +115,6 @@
   
   	<?php include 'includes/footer.php'; ?>
 </div>
-
 <?php include 'includes/scripts.php'; ?>
 </body>
 </html>
