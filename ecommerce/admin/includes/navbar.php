@@ -4,7 +4,7 @@
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><b>C</b>P</span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><b>Ecommerce</b>Site</span>
+    <span class="logo-lg"><b>Trishul</b>NGO</span>
   </a>
   <!-- Header Navbar: style can be found in header.less -->
   <nav class="navbar navbar-static-top">
