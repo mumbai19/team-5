@@ -72,7 +72,7 @@
 							            <input type="hidden" value="<?php echo $product['prodid']; ?>" name="id">
 							        </div>
 			            			<button type="submit" class="btn btn-primary btn-lg btn-flat"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-			            			<a href="customization.php">To customize your order</a>
+			            			<a class="btn btn-primary btn-lg btn-flat" href="customization.php?q=<?php echo $product['prodname']; ?>">Customize</a>
 			            		</div>
 		            		</form>
 		            	</div>

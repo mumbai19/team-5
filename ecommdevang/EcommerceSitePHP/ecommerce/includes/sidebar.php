@@ -29,11 +29,11 @@
 	  	</div>
 	  	<div class="box-body">
 	    	<p>Get free updates on the latest products and discounts, straight to your inbox.</p>
-	    	<form method="POST" action="">
+	    	<form method="POST" action="send.php">
 		    	<div class="input-group">
-	                <input type="text" class="form-control">
+	                <input type="text" name="email" class="form-control">
 	                <span class="input-group-btn">
-	                    <button type="button" class="btn btn-info btn-flat"><i class="fa fa-envelope"></i> </button>
+	                    <button type="button" value="submit" name="submit" id="submit" class="btn btn-info btn-flat"><i class="fa fa-envelope"></i> </button>
 	                </span>
 	            </div>
 		    </form>

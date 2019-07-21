@@ -20,6 +20,12 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
     if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], "uploads/".$_FILES['fileToUpload']['name'])) {
+        $url =  "http://{$_SERVER['HTTP_HOST']}:80/jpmc12/team-5/ecommdevang/EcommerceSitePHP/ecommerce/uploads/".$_FILES['fileToUpload']['name'];
+        echo $url;
+
+
+
+
       echo "Uploaded successfully";
    } else {
       echo "Upload failed!";
@@ -67,11 +73,12 @@ if(isset($_POST['submit']))
             // Content
             $mail->isHTML(true);                                  // Set email format to HTML
             $mail->Subject = $subject;
-            $mail->Body    = $msg;
-            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+            $mail->Body    = "This is the body in plain text for non-HTML mail clients $url msg";
+            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients $url';
 
             $mail->send();
-            echo 'all message has been sent';
+            header('location:index.php');
+            alert('sent mail successfully');
         } catch (Exception $e) {
             echo "Error: {$mail->ErrorInfo}";
         }

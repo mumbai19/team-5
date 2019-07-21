@@ -157,13 +157,20 @@
 	 <div class="row">
 	 	<div class="col-sm-8">
 	 		<div class="container">
+<?php 
 
+$sub = $_GET['q'];
+
+?>
 <html>
     <body>
-        <h2>Send Mail</h2>
+        <h2 style="color: white">Send Mail</h2>
         <form method="post" action="email.php" enctype="multipart/form-data">
-            <input type="text" name="subject" placeholder="Subject"><br>
+
+            <input type="text" name="subject" placeholder="Subject" value="<?php echo $sub;?>" readonly><br>
+            <h2 style="color: white">Subject</h2>
             <textarea name="msg" placeholder="Write email message"></textarea><br>
+            <h1 style="color: white">Upload file</h1>
 
             Attach file:<br>
             <input type="file" accept=" .png, .jpg" name="fileToUpload"/><br><br>
