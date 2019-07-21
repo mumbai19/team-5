@@ -1,7 +1,14 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html>
+	<title>Online Shopping India</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="include/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="include/style.css">
+    <link rel="stylesheet" type="text/css" href="include/display.css">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,15 +40,13 @@
     </style>
 </head>
 
+
 <body>
-    <!--::header part start::-->
-   <?php 
+ <?php 
 include("header.php");
    ?>
-    <!-- Header part end-->
 
-    <!-- banner part start-->
-    <section class="banner_part">
+   <section class="banner_part">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 offset-lg-5">
@@ -56,12 +61,77 @@ include("header.php");
             </div>
         </div>
     </section>
-    <!-- banner part start-->
 
-    
-  
-    <!-- top_service part start-->
-    <section class="be_part">
+    <div class="item">
+               <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image">
+                  <a href="product.php"><img src="assets/img/product/hp.jpg" alt="slider 02"></a>
+                  <div class="team_columns_item_caption">
+                     <h5><a href="product.php">Laptops</a></h5>
+                     <hr>
+                     <h6>HP</h6>
+                  </div>
+               </div>
+               <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-1">
+                  <a href="product.php"><img src="assets/img/product/mac.jpg" alt="slider 02"></a>
+                  <div class="team_columns_item_caption">
+                     <h5><a href="product.php">Laptops</a></h5>
+                     <hr>
+                     <h6>MAC</h6>
+                  </div>
+               </div>
+               <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-2">
+                  <a href="product.php"><img src="assets/img/product/sony.jpeg" alt="slider 02"></a>
+                  <div class="team_columns_item_caption">
+                     <h5><a href="product.php">Laptops</a></h5>
+                     <hr>
+                     <h6>Sony</h6>
+                  </div>
+               </div>
+               <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-3">
+                  <a href="product.php"><img src="assets/img/product/dell.jpg" alt="slider 02"></a>
+                  <div class="team_columns_item_caption">
+                     <h5><a href="product.php">Laptops</a></h5>
+                     <hr>
+                     <h6>Dell</h6>
+                  </div>
+               </div>
+            </div>
+
+            <div class="item">
+               <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image">
+                  <a href="product.php"><img src="assets/img/product/hp.jpg" alt="slider 02"></a>
+                  <div class="team_columns_item_caption">
+                     <h5><a href="product.php">Laptops</a></h5>
+                     <hr>
+                     <h6>HP</h6>
+                  </div>
+               </div>
+               <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-1">
+                  <a href="product.php"><img src="assets/img/product/mac.jpg" alt="slider 02"></a>
+                  <div class="team_columns_item_caption">
+                     <h5><a href="product.php">Laptops</a></h5>
+                     <hr>
+                     <h6>MAC</h6>
+                  </div>
+               </div>
+               <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-2">
+                  <a href="product.php"><img src="assets/img/product/sony.jpeg" alt="slider 02"></a>
+                  <div class="team_columns_item_caption">
+                     <h5><a href="product.php">Laptops</a></h5>
+                     <hr>
+                     <h6>Sony</h6>
+                  </div>
+               </div>
+               <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-3">
+                  <a href="product.php"><img src="assets/img/product/dell.jpg" alt="slider 02"></a>
+                  <div class="team_columns_item_caption">
+                     <h5><a href="product.php">Laptops</a></h5>
+                     <hr>
+                     <h6>Dell</h6>
+                  </div>
+               </div>
+            </div>
+            <section class="be_part">
         <div class="container">
             <div class="row justify-content-between align-items-center">
                 <div class="col-lg-6">
@@ -295,5 +365,3 @@ include("header.php");
     <!-- custom js -->
     <script src="js/custom.js"></script>
 </body>
-
-</html>
