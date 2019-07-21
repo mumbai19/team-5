@@ -14,6 +14,9 @@
                                     <a class="nav-link" href="index.html">Home</a>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Our Product</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link" href="about.html">Our Work</a>
                                 </li>
                                 <li class="nav-item">
@@ -21,6 +24,9 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="contactus/contactus.html">Contact Us</a>
+                                </li>
+                                 <li class="nav-item">
+                                    <a class="nav-link" href="Causes.html">About Us</a>
                                 </li>
                                  <li class="nav-item">
                                     <a class="nav-link" href="Causes.html">Login/Signup</a>
